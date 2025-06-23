@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap"
+            rel="stylesheet">
+
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Pirata One', cursive;
+                background-color: #000;
+                color: #ccc;
+            }
+
+            .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #fff;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 30px;
+        opacity: 70%;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        margin-top: 20px;
+        color: white;
+    }
+
+    .description {
+        margin-top: 15px;
+        line-height: 1.7;
+    }
+
+    .highlight {
+        color: #fff;
+        text-decoration: underline ;
+        text-decoration-color: #B9272A;
+        text-decoration-thickness: 20%;
+    }
+
+    .skills-section {
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .skills-category {
+        flex: 1 1 30%;
+        margin: 10px;
+    }
+
+    .category-title {
+        font-size: 20px;
+        margin-bottom: 10px;  
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .skill-item {
+        background-color: #1a1a1a;
+        padding: 8px 12px;
+        border: 4px solid #B9242A;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+</style>
+    </head>
+    <body>
+
+        <div class="container">
+            <header class="header">
+                <div class="logo">Frdnay</div>
+                <button class="menu-toggle">☰</button>
+            </header>
+
+            <h2 class="section-title">About Me</h2>
+
+            <section class="about-section">
+                <div class="introduction">
+                    <h3 class="subtitle">My Introduction<img src="assets/icon/shooting-star.png" style="width: 40px; float: right;" alt=""></h3> 
+                    <p class="description">
+                        Halo, nama saya <span class="highlight">Firdhan
+                            Abivandya</span>. Saya lahir di
+                        <span class="highlight">Kota Surakarta</span> pada
+                        tanggal
+                        <span class="highlight">21 Juni 2007</span>. Saat ini,
+                        saya bersekolah di
+                        <span class="highlight">SMKN 5 Surakarta</span>, dengan
+                        mengambil jurusan
+                        <span class="highlight">Rekayasa Perangkat Lunak
+                            (RPL)</span>. Saya bersemangat untuk mempelajari
+                        bidang ini lebih dalam agar bermanfaat bagi
+                        <span class="highlight">masa depan saya nanti</span>.
+                    </p>
+                </div>
+            </section>
+
+            <section class="skills-section">
+                <div class="skills-category">
+                    <h4 class="category-title">Frontend</h4>
+                    <div class="skills-list">
+                        <span class="skill-item">HTML</span>
+                        <span class="skill-item">CSS</span>
+                        <span class="skill-item">Bootstrap</span>
+                        <span class="skill-item">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4 class="category-title">Backend</h4>
+                    <div class="skills-list">
+                        <span class="skill-item">PHP</span>
+                        <span class="skill-item">Java</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4 class="category-title">Database</h4>
+                    <div class="skills-list">
+                        <span class="skill-item">MySQL</span>
+                    </div>
+                </div>
+            </section>
+        </body>
+    </html>
