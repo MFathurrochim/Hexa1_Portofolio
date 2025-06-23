@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <title>Contact Footer</title>
   <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("IVGs3Mn-Q17accpDr"); 
+    })();
+  </script>
   <style>
     body {
       margin: 0;
@@ -95,12 +101,28 @@
     </div>
 
     <div class="form-container">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Email">
-      <textarea placeholder="Type Out Something" rows="4"></textarea>
-      <button type="submit">Send</button>
+      <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Nama Anda" required />
+        <input type="email" name="from_email" placeholder="Email Anda" required />
+        <input type="text" name="subject" placeholder="Subjek" />
+        <textarea name="message" placeholder="Pesan Anda" required></textarea>
+        <button type="submit">Kirim</button>
+      </form>
     </div>
   </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm("service_e89eltg", "template_sekszef", this)
+        .then(function(response) {
+          alert("Pesan berhasil dikirim!");
+        }, function(error) {
+          alert("Gagal mengirim pesan: " + error.text);
+        });
+    });
+  </script>
 
 </body>
 </html>
