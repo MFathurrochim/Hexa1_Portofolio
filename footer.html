@@ -7,7 +7,7 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
     (function(){
-      emailjs.init("IVGs3Mn-Q17accpDr"); 
+      emailjs.init("IVGs3Mn-Q17accpDr");
     })();
   </script>
   <style>
@@ -85,6 +85,36 @@
     .form-container button:hover {
       background-color: #666;
     }
+
+    .popup {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  z-index: 99999; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: none;
+  border-left: 6px solid #c2185b;
+  font-family: sans-serif;
+  animation: fadeInOut 4s ease-in-out forwards;
+  max-width: 80vw;
+  width: fit-content;
+  text-align: center;
+  pointer-events: none; 
+}
+
+
+
+    @keyframes fadeInOut {
+      0% {opacity: 0; transform: translateY(-10px);}
+      10% {opacity: 1; transform: translateY(0);}
+      90% {opacity: 1;}
+      100% {opacity: 0; transform: translateY(-10px);}
+    }
   </style>
 </head>
 <body>
@@ -111,15 +141,27 @@
     </div>
   </footer>
 
+  <div id="popup" class="popup"></div>
+
   <script>
+    function showPopup(message) {
+      const popup = document.getElementById("popup");
+      popup.innerText = message;
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 4000); 
+    }
+
     document.getElementById("contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
 
       emailjs.sendForm("service_e89eltg", "template_sekszef", this)
         .then(function(response) {
-          alert("Pesan berhasil dikirim!");
+          showPopup("Pesan berhasil dikirim!");
         }, function(error) {
-          alert("Gagal mengirim pesan: " + error.text);
+          showPopup("Gagal mengirim pesan: " + error.text);
         });
     });
   </script>
