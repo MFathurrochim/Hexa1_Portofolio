@@ -56,7 +56,7 @@
         padding: 10px;
         margin-bottom: 20px;
         overflow: hidden;
-        transition: all 0.4s ease;
+        transition: all 0.8s ease;
         cursor: pointer;
         max-height: 220px; /* default tinggi awal */
         -webkit-tap-highlight-color: transparent;
@@ -74,33 +74,33 @@
         
 }
 
-.project-img {
-    width: 100%;
-    border-radius: 8px;
-    opacity: 0.5;
-    transition: 0.4s ease-in-out;
+    .project-img {
+        width: 100%;
+        border-radius: 8px;
+        opacity: 0.5;
+        transition: 0.4s ease-in-out;
 }
 
-.project-details {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.4s ease;
+    /* .project-details {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+} */
+
+    .project-card.expanded {
+        max-height: 1000px;
 }
 
-.project-card.expanded {
-  max-height: 150vh; /* tinggi saat terbuka */
+    .project-card.expanded .project-img {
+        opacity: 1;
 }
 
-.project-card.expanded .project-img {
-    opacity: 1;
-}
-
-.project-card.expanded .project-details {
-    opacity: 1;
-    max-height: 200px;
-    margin-top: 10px;
-}
+    /* .project-card.expanded .project-details {
+        opacity: 1;
+        max-height: 200px;
+        margin-top: 10px;
+} */
 
 
 </style>
@@ -122,37 +122,37 @@
             <div class="project-card" onclick="toggleExpand(this)">
                 <div class="project-title">Sertifikat 1</div>
                 <img
-                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
+                    src="assets/projects/sertifikat.jpeg"
                     alt="Sertifikat 1" class="project-img"
                     onclick="toggleExpand(this)">
-                <div class="project-details">
+                <!-- <div class="project-details">
                     <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
                         Developer.</p>
-                </div>
+                </div> -->
             </div>
 
             <div class="project-card" onclick="toggleExpand(this)">
-                <div class="project-title">Sertifikat 1</div>
+                <div class="project-title">Website Riyadh</div>
                 <img
-                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
-                    alt="Sertifikat 1" class="project-img"
+                    src="assets/projects/website Riyadh.jpeg"
+                    alt="Website Riyadh" class="project-img"
                     onclick="toggleExpand(this)">
-                <div class="project-details">
+                <!-- <div class="project-details">
                     <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
                         Developer.</p>
-                </div>
+                </div> -->
             </div>
 
             <div class="project-card" onclick="toggleExpand(this)">
-                <div class="project-title">Sertifikat 1</div>
+                <div class="project-title">Picture App</div>
                 <img
-                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
-                    alt="Sertifikat 1" class="project-img"
+                    src="assets/projects/picture app.jpeg"
+                    alt="Picture App" class="project-img"
                     onclick="toggleExpand(this)">
-                <div class="project-details">
+                <!-- <div class="project-details">
                     <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
                         Developer.</p>
-                </div>
+                </div> -->
             </div>
 
             <script>
