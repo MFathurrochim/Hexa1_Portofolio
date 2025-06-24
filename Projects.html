@@ -1,119 +1,40 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Contact Footer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("IVGs3Mn-Q17accpDr");
-    })();
-  </script>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Pirata One', cursive;
-      background-color: #000;
-      color: #ccc;
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap"
+            rel="stylesheet">
+
+        <style>
+            body {
+                margin: 0;
+                font-family: 'Pirata One', cursive;
+                background-color: #000;
+                color: #ccc;
+                margin-top: 100px;
+            }
+
+            .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
     }
 
-    footer {
-      padding: 40px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .map-container {
-      width: 90%;
-      max-width: 500px;
-      height: 300px;
-      border-radius: 15px;
-      overflow: hidden;
-      border: 2px solid #444;
-      box-shadow: 0 0 10px #222;
-      margin-bottom: 30px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .form-container {
-      background-color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
-    }
-
-    .form-container input,
-    .form-container textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      background-color: #222;
-      color: #ccc;
-      border: 1px solid #444;
-      border-radius: 5px;
-      font-family: 'Pirata One', cursive;
-    }
-
-    .form-container input::placeholder,
-    .form-container textarea::placeholder {
-      color: #777;
-    }
-
-    .form-container button {
-      background-color: #444;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      font-family: 'Pirata One', cursive;
-      cursor: pointer;
-    }
-
-    .form-container button:hover {
-      background-color: #666;
-    }
-
-    .popup {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #111;
-  color: white;
-  padding: 16px 24px;
-  border-radius: 8px;
-  z-index: 99999; 
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  display: none;
-  border-left: 6px solid #c2185b;
-  font-family: sans-serif;
-  animation: fadeInOut 4s ease-in-out forwards;
-  max-width: 80vw;
-  width: fit-content;
-  text-align: center;
-  pointer-events: none; 
-}
-
-
-
-    @keyframes fadeInOut {
-      0% {opacity: 0; transform: translateY(-10px);}
-      10% {opacity: 1; transform: translateY(0);}
-      90% {opacity: 1;}
-      100% {opacity: 0; transform: translateY(-10px);}
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
     }
 
             body {
@@ -265,10 +186,78 @@
           border: 1px solid red;
           background-color: red;
         }
-  </style>
-</head>
-<body>
-         <!-- Header -->
+
+    .menu-toggle {
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: #fff;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 36px;
+        margin-top: 30px;
+        opacity: 70%;
+    }
+
+    .project-card {
+        border-radius: 12px;
+        border: solid 5px #0f0f0f;
+        padding: 10px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: all 0.4s ease;
+        cursor: pointer;
+        max-height: 220px; /* default tinggi awal */
+        -webkit-tap-highlight-color: transparent;
+        
+}
+
+    .project-title {
+        text-align: center;
+        font-size: 20px;
+        padding: 5px 20px;
+        border-radius: 20px;
+        background-color: #0f0f0f;
+        width: fit-content;
+        margin: 5px auto 20px ;
+        
+}
+
+.project-img {
+    width: 100%;
+    border-radius: 8px;
+    opacity: 0.5;
+    transition: 0.4s ease-in-out;
+}
+
+.project-details {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.project-card.expanded {
+  max-height: 150vh; /* tinggi saat terbuka */
+}
+
+.project-card.expanded .project-img {
+    opacity: 1;
+}
+
+.project-card.expanded .project-details {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 10px;
+}
+
+
+</style>
+    </head>
+    <body>
+                <!-- Header -->
     <header class="header">
         <div class="logo">
             <div class="logo-icon"></div>
@@ -291,52 +280,55 @@
             <li><a href="footer.html">Address <span class="garisAd"></span></a></li>
         </ul>
     </nav>
-  <footer>
-    <h2>Send me a message</h2>
 
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7397929077583!2d109.3438258749961!3d-0.02021259998767061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d585f9c6379d3%3A0x8d0c33cb8e64c7b2!2sPontianak%2C%20Kota%20Pontianak%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1719123456789"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
 
-    <div class="form-container">
-      <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Nama Anda" required />
-        <input type="email" name="from_email" placeholder="Email Anda" required />
-        <input type="text" name="subject" placeholder="Subjek" />
-        <textarea name="message" placeholder="Pesan Anda" required></textarea>
-        <button type="submit">Kirim</button>
-      </form>
-    </div>
-  </footer>
+            <h2 class="section-title">Projects</h2>
 
-  <div id="popup" class="popup"></div>
+            <p style="font-size: 18px; margin-bottom: 5px;"><span
+                    style="color: rgb(31, 93, 227); ">note</span> : click for
+                expand</p>
 
-  <script>
-    function showPopup(message) {
-      const popup = document.getElementById("popup");
-      popup.innerText = message;
-      popup.style.display = "block";
+            <div class="project-card" onclick="toggleExpand(this)">
+                <div class="project-title">Sertifikat 1</div>
+                <img
+                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
+                    alt="Sertifikat 1" class="project-img"
+                    onclick="toggleExpand(this)">
+                <div class="project-details">
+                    <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
+                        Developer.</p>
+                </div>
+            </div>
 
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 4000); 
+            <div class="project-card" onclick="toggleExpand(this)">
+                <div class="project-title">Sertifikat 1</div>
+                <img
+                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
+                    alt="Sertifikat 1" class="project-img"
+                    onclick="toggleExpand(this)">
+                <div class="project-details">
+                    <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
+                        Developer.</p>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleExpand(this)">
+                <div class="project-title">Sertifikat 1</div>
+                <img
+                    src="https://tse4.mm.bing.net/th?id=OIP.r81PXN6Z589Cgvd9WyWoFwHaHa&pid=Api&P=0&h=180"
+                    alt="Sertifikat 1" class="project-img"
+                    onclick="toggleExpand(this)">
+                <div class="project-details">
+                    <p>Ini adalah sertifikat dari Dicoding untuk course Frontend
+                        Developer.</p>
+                </div>
+            </div>
+
+            <script>
+    function toggleExpand(card) {
+    card.classList.toggle("expanded");
     }
-
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      emailjs.sendForm("service_e89eltg", "template_sekszef", this)
-        .then(function(response) {
-          showPopup("Pesan berhasil dikirim!");
-        }, function(error) {
-          showPopup("Gagal mengirim pesan: " + error.text);
-        });
-    });
-                  // Hamburger Menu Toggle
+     // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('overlay');
@@ -358,7 +350,9 @@
                 toggleMenu();
             });
         });
-  </script>
 
-</body>
-</html>
+
+</script>
+
+        </body>
+    </html>

@@ -1,125 +1,160 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact Footer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function(){
-      emailjs.init("IVGs3Mn-Q17accpDr");
-    })();
-  </script>
+  <title>HOME</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    body {
+    *, body, html {
+      padding 0;
       margin: 0;
-      font-family: 'Pirata One', cursive;
-      background-color: #000;
-      color: #ccc;
     }
-
-    footer {
-      padding: 40px 20px;
+    
+    body {
+      background: #0a0a0a;
+      font-family: sans-serif;
+      font-family: 'Pirata One', cursive;
+      color: #fefae0;
+    }
+  
+    .Container {
+      width: 100%;
+      height: 100vh;
+      background-color: black;
+    }
+    
+    .Foto {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      background-color: #black;
+      width: 100%;
+      height: 50vh;
     }
-
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    
+    .lingkaranFoto {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 180px;
+      width: 180px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 0, 0, 0.50);
+      padding: 30px;
     }
-
-    .map-container {
-      width: 90%;
-      max-width: 500px;
-      height: 300px;
-      border-radius: 15px;
+    
+    .lingkaran2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 0, 0, 0.70);
+      padding: 37px;
+    }
+    
+    .img {
+      height: 150px;
+      width: 150px;
+      border-radius: 100%;
+      background-color: white;
       overflow: hidden;
-      border: 2px solid #444;
-      box-shadow: 0 0 10px #222;
-      margin-bottom: 30px;
     }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
+    
+    .img img {
+      height: 270px;
+      width: auto;
+      object-fit: cover;
+      transform: translate(0%, -20%);
     }
-
-    .form-container {
-      background-color: #111;
-      padding: 20px;
+    
+    .section {
+      padding-left: 20px;
+    }
+    
+    .nama {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      width: 150px;
+      background-color: rgba(255, 0, 0, 0.70);
+      border-radius: 5px;
+      color: black;
+      font-size: 18px;
+    }
+    
+    .teks, .paragraf {
+      margin-top: 20px;
+    }
+    
+    .Head h1 {
+      font-size: 50px;
+    }
+    
+    .Head span {
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 0, 0, 0.70);
+    }
+    
+    .paragraf p {
+      font-size: 15px;
+    }
+    
+    .tombol {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: center;
+      background-color: transparent;
+      width: 250px;
+      height: 150px;
+      /* border: 1px solid white; */
+      gap: 12px;
+    }
+    
+    .kotak {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 10px;
-      width: 90%;
-      max-width: 500px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #fefae0;
     }
-
-    .form-container input,
-    .form-container textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      background-color: #222;
-      color: #ccc;
-      border: 1px solid #444;
-      border-radius: 5px;
-      font-family: 'Pirata One', cursive;
-    }
-
-    .form-container input::placeholder,
-    .form-container textarea::placeholder {
-      color: #777;
-    }
-
-    .form-container button {
-      background-color: #444;
-      color: white;
-      padding: 10px 20px;
+    
+    .l {
       border: none;
-      border-radius: 5px;
-      font-family: 'Pirata One', cursive;
-      cursor: pointer;
+    }
+    
+    .lebar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 100px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      color: #fefae0;
+      text-decoration: none;
+      
+    }
+    
+    .kotak:hover,
+    .lebar:hover {
+      background-color: red;
     }
 
-    .form-container button:hover {
-      background-color: #666;
-    }
-
-    .popup {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #111;
-  color: white;
-  padding: 16px 24px;
-  border-radius: 8px;
-  z-index: 99999; 
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  display: none;
-  border-left: 6px solid #c2185b;
-  font-family: sans-serif;
-  animation: fadeInOut 4s ease-in-out forwards;
-  max-width: 80vw;
-  width: fit-content;
-  text-align: center;
-  pointer-events: none; 
-}
-
-
-
-    @keyframes fadeInOut {
-      0% {opacity: 0; transform: translateY(-10px);}
-      10% {opacity: 1; transform: translateY(0);}
-      90% {opacity: 1;}
-      100% {opacity: 0; transform: translateY(-10px);}
-    }
-
-            body {
+     body {
           font-family: 'Pirata One', cursive;
           font-size: 3rem;
           color: #fefae0;
+          margin-top: 60px;
         }
         
             /* Header */
@@ -265,10 +300,13 @@
           border: 1px solid red;
           background-color: red;
         }
+
+    
+  
   </style>
 </head>
 <body>
-         <!-- Header -->
+    <!-- Header -->
     <header class="header">
         <div class="logo">
             <div class="logo-icon"></div>
@@ -291,52 +329,76 @@
             <li><a href="footer.html">Address <span class="garisAd"></span></a></li>
         </ul>
     </nav>
-  <footer>
-    <h2>Send me a message</h2>
-
-    <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7397929077583!2d109.3438258749961!3d-0.02021259998767061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d585f9c6379d3%3A0x8d0c33cb8e64c7b2!2sPontianak%2C%20Kota%20Pontianak%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1719123456789"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+  <div class="Container">
+    
+    <div class="Foto">
+      <div class="lingkaranFoto">
+        <div class="lingkaran2">
+          <div class="img">
+            <img src="1.jpeg" alt="">
+          </div>
+        </div>
+      </div>
     </div>
+    
+    
+    <div class="section">
+      <div class="nama">
+        <p>Firdhan Abivandya</p>
+      </div>
+      
+      
+      
+      <div class="teks">
+        <div class="Head">
+          <h1>I'm <span>Designer</span></h1>
+        </div>
+        
+        <div class="paragraf">
+          <p>Hanya seorang anak muda yang suka merawat tanaman dan memakan buah pisang</p>
+        </div>
+      </div>
+      
+      
+      
+      <div class="Cont-tombol">
+        <div class="tombol">
+              <a href="#" class="kotak">
+                <i class="fa-solid fa-user"></i>
+              </a>
+          
+              <a href="#" class="kotak">
+                <i class="fa-solid fa-folder"></i>
+              </a>
+          
+          
+              <a href="#" class="lebar">
+                <I class="#" class="fa-solid "></I>
+              </a>
+          
+              <a href="#" class="kotak l">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            
+              <a href="#" class="kotak l">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            
+              <a href="#" class="kotak l">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+            
+              <a href="#" class="kotak l">
+                <i class="fa-brands fa-github"></i>
+              </a>
 
-    <div class="form-container">
-      <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Nama Anda" required />
-        <input type="email" name="from_email" placeholder="Email Anda" required />
-        <input type="text" name="subject" placeholder="Subjek" />
-        <textarea name="message" placeholder="Pesan Anda" required></textarea>
-        <button type="submit">Kirim</button>
-      </form>
+          
+        </div>
+      </div>
     </div>
-  </footer>
-
-  <div id="popup" class="popup"></div>
-
-  <script>
-    function showPopup(message) {
-      const popup = document.getElementById("popup");
-      popup.innerText = message;
-      popup.style.display = "block";
-
-      setTimeout(() => {
-        popup.style.display = "none";
-      }, 4000); 
-    }
-
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      emailjs.sendForm("service_e89eltg", "template_sekszef", this)
-        .then(function(response) {
-          showPopup("Pesan berhasil dikirim!");
-        }, function(error) {
-          showPopup("Gagal mengirim pesan: " + error.text);
-        });
-    });
-                  // Hamburger Menu Toggle
+  </div>
+   <script>
+              // Hamburger Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         const overlay = document.getElementById('overlay');
@@ -358,7 +420,6 @@
                 toggleMenu();
             });
         });
-  </script>
-
+    </script>
 </body>
 </html>

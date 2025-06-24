@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frönany - Carrier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pirata One', cursive;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: #dc2626;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: white;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            font-family: 'Pirata one', serif;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 80px 30px 30px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #dc2626;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: #666666;
+            margin-bottom: 60px;
+            font-family: 'Pirata one', cursive;
+        }
+
+        /* Location Cards */
+        .locations-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .location-card {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 12px;
+            padding: 50px;
+            margin-bottom: 40px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.1);
+            border-color: rgba(220, 38, 38, 0.3);
+        }
+
+        .quote-mark {
+            position: absolute;
+            font-size: 60px;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: 'Pirata one', cursive;
+        }
+
+        .quote-mark.top {
+            bottom:80px;
+            left: 20px;
+        }
+
+        .quote-mark.bottom {
+            bottom: 1px;
+            right: 10px;
+            transform: rotate(180deg);
+        }
+
+        .location-header {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .location-address {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #ffffff;
+            font-weight: 400;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .logo-text {
+                font-size: 50px;
+            }
+
+            .page-title {
+                font-size: 36px;
+                margin-bottom: 50px;
+            }
+
+            .locations-container {
+                padding: 0 20px;
+            }
+
+            .location-card {
+                padding: 32px 25px;
+                margin-bottom: 20px;
+            }
+
+            .location-address {
+                font-size: 15px;
+            }
+
+            .mobile-menu {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 28px;
+            }
+
+            .location-card {
+                padding: 25px 20px;
+            }
+
+            .location-address {
+                font-size: 15px;
+            }
+        }
+
+        /* Overlay for mobile menu */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #dc2626;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .scroll-top:hover {
+            background: #b91c1c;
+            transform: translateY(-3px);
+        }
+
+        .scroll-top::after {
+            content: '↑';
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+         body {
+          font-family: 'Pirata One', cursive;
+          font-size: 3rem;
+          color: #fefae0;
+        }
+        
+            /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background: #dc2626;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: #fefae0;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fefae0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -200%;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            backdrop-filter: blur(20px);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding-top : 200px;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu li {
+          padding-top: 20px;
+            margin-bottom: -20px;
+        }
+
+        .mobile-menu a {
+            color: #5a5544;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu a:hover {
+            color: #fefae0;
+        }
+        
+        .garisAd, .garisPr{
+          display: flex;
+          
+          width: 87px;
+          height: 0px;
+        }
+        
+        .garisMot {
+          display: flex;
+          
+          width: 110px;
+          height: 0px;
+        }
+        
+        .garisAb, .garisHom{
+          display: flex;
+          border: 1px solid black;
+          background-color: black;
+          width: 59px;
+          height: 1px;
+        }
+        
+       a:hover .garisHom, 
+       a:hover .garisAb,
+       a:hover .garisMot,
+       a:hover .garisAd,
+       a:hover .garisPr{
+          border: 1px solid red;
+          background-color: red;
+        }
+    </style>
+</head>
+<body>
+                <!-- Header -->
+                  <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <span class="logo-text">Frönany</span>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home <span class="garisHom"></span></a></li>
+            <li><a href="aboutme.html">About <span class="garisAb"></span></a></li>
+            <li><a href="Projects.html">Project <span class="garisPr"></span></a></li>
+            <li><a href="carrier.html">Motivation <span class="garisMot"></a></span></li>
+            <li><a href="footer.html">Address <span class="garisAd"></span></a></li>
+        </ul>
+    </nav>
+    
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1 class="page-title">Carrier</h1>
+        
+        <div class="locations-container">
+            <!-- Location 1: SD N Purwodiningratan -->
+            <div class="location-card">
+                <div class="quote-mark top">"</div>
+                <div class="location-header">SD N Purwodiningratan.</div>
+                <div class="location-address">
+                    Jl. Mertoluhutan No.50, Purwodiningratan, Kec. Jebres,<br>
+                    Kota Surakarta, Jawa Tengah 57128
+                </div>
+                <div class="quote-mark bottom">"</div>
+            </div>
+
+            <!-- Location 2: SMP N 14 Surakarta -->
+            <div class="location-card">
+                <div class="quote-mark top">"</div>
+                <div class="location-header">SMP N 14 Surakarta.</div>
+                <div class="location-address">
+                    Jl. Prof. W.Z Yohannes No.54, RT.3/RW.7,<br>
+                    Purwodiningratan, Kec. Jebres, Kota Surakarta, Jawa<br>
+                    Tengah 57128
+                </div>
+                <div class="quote-mark bottom">"</div>
+            </div>
+
+            <!-- Location 3: SMK N 5 Surakarta -->
+            <div class="location-card">
+                <div class="quote-mark top">"</div>
+                <div class="location-header">SMK N 5 Surakarta.</div>
+                <div class="location-address">
+                    Jl. Adi Sucipto No.42, Kerten, Kec. Laweyan, Kota<br>
+                    Surakarta, Jawa Tengah 57143
+                </div>
+                <div class="quote-mark bottom">"</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop"></button>
+
+    <script>
+        
+
+        // Close menu when clicking on menu links
+        const menuLinks = document.querySelectorAll('.mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.visibility = 'visible';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.visibility = 'hidden';
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+
+        // Add smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add hover effects for location cards
+        const locationCards = document.querySelectorAll('.location-card');
+        locationCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+                      // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on menu links
+        const menu = document.querySelectorAll('.mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu();
+            });
+        });
+    </script>
+</body>
+</html>
